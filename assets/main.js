@@ -74,7 +74,7 @@ for (let i = 0; i < socialPost.length; i++) {
                                 <div class="container">
                                     <div class="row">
                                         <div class="col">
-                                            <input id="Like" class="btn btn-primary" type="button" value="Like">
+                                            <input id="Like${[i]}" class="btn btn-primary" type="button" value="0">
                                         </div>
                                         <div class="col">
                                             <p>Piace a ${socialPost[i].like} persone</p>
@@ -88,7 +88,9 @@ for (let i = 0; i < socialPost.length; i++) {
 
 }
 
-document.getElementById("Like").addEventListener("click", function () {
-    console.log("like")
-
+document.getElementById("Like2").addEventListener("click", function () {
+    //console.log("like")
+    let like = document.getElementById("Like")
+    like.value = 1
 })
+
