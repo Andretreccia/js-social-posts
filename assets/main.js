@@ -4,8 +4,10 @@ Gli attributi minimi del modello di un post: id, contenuto, immagine,
 autore (nome, avatar), numero di likes, data creazione.
 Un secondo array conterrà solo gli id dei posts a cui abbiamo dato like. */
 
-let myLike = []
 
+//array con i post a cui ho messo like
+let myLike = []
+//arrau contenente id, contenuto, immagine,autore(nome, avatar), numero di likes, data creazione.
 const socialPost = [
     {
         id: 1,
@@ -52,8 +54,10 @@ const socialPost = [
         date: "03/10/2021"
     }
 ]
-console.log(socialPost)
+//console.log(socialPost)
+//ciclo per stampare le card nella DOM
 for (let i = 0; i < socialPost.length; i++) {
+    //variabile con valore l'elemento da creare
     let post = `<div class="card">
                         <div class="card-body">
                                 <div class="row">
@@ -74,9 +78,9 @@ for (let i = 0; i < socialPost.length; i++) {
                                 <div class="container">
                                     <div class="row">
                                         <div class="col">
-                                            <input id="Like${[i]}" class="btn btn-primary" type="button" value="0">
+                                            <button class="btn mt-2 like_button" data-idCurrent="${socialPost[i].id}"><i class="fas fa-thumbs-up fa-lg"></i> Mi Piace</button>
                                         </div>
-                                        <div class="col">
+                                        <div class="col mt-3">
                                             <p>Piace a ${socialPost[i].like} persone</p>
                                         </div>
                                     </div>
@@ -84,13 +88,24 @@ for (let i = 0; i < socialPost.length; i++) {
                         </div>
                     </div>`
     //console.log(post)
+    //seleziona il contenitore e inserisci i post tramite .innerHTML
     document.getElementById("postContainer").innerHTML += post
 
 }
 
-document.getElementById("Like2").addEventListener("click", function () {
-    //console.log("like")
-    let like = document.getElementById("Like")
-    like.value = 1
-})
 
+//funzione per ottenre l id nel post il cui bottone è collocato
+//crea una costante con valore i bottoni nella DOM
+const likeButtons = document.getElementsByClassName("like_button")
+//ciclo con lunghezza il numero dei bottoni
+for (let i = 0; i < likeButtons.length; i++) {
+    const likeButton = likeButtons[i];
+    likeButton.addEventListener("click", function () {
+        //console.log(socialPost[i].id)
+
+
+        myLike.push(socialPost[i].id)
+        console.log(myLike)
+
+    })
+}
