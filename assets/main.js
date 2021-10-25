@@ -4,6 +4,7 @@ Gli attributi minimi del modello di un post: id, contenuto, immagine,
 autore (nome, avatar), numero di likes, data creazione.
 Un secondo array conterrà solo gli id dei posts a cui abbiamo dato like. */
 
+let myLike = []
 
 const socialPost = [
     {
@@ -14,7 +15,7 @@ const socialPost = [
         },
         content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis enim hic voluptatem maxime exercitationem dolorem quod tenetur optio molestiae fuga laudantium, dolores perspiciatis porro vitae inventore dicta totam, sed quia?",
         img: "https://unsplash.it/600/400?image=",
-        like: 0,
+        like: 4,
         date: "25/10/2021"
     },
     {
@@ -25,7 +26,7 @@ const socialPost = [
         },
         content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis enim hic voluptatem maxime exercitationem dolorem quod tenetur optio molestiae fuga laudantium, dolores perspiciatis porro vitae inventore dicta totam, sed quia?",
         img: "https://unsplash.it/600/400?image=",
-        like: 0,
+        like: 45,
         date: "24/10/2021"
     },
     {
@@ -36,7 +37,7 @@ const socialPost = [
         },
         content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis enim hic voluptatem maxime exercitationem dolorem quod tenetur optio molestiae fuga laudantium, dolores perspiciatis porro vitae inventore dicta totam, sed quia?",
         img: "https://unsplash.it/600/400?image=",
-        like: 0,
+        like: 90,
         date: "18/10/2021"
     },
     {
@@ -47,7 +48,7 @@ const socialPost = [
         },
         content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis enim hic voluptatem maxime exercitationem dolorem quod tenetur optio molestiae fuga laudantium, dolores perspiciatis porro vitae inventore dicta totam, sed quia?",
         img: "https://unsplash.it/600/400?image=",
-        like: 0,
+        like: 2345,
         date: "03/10/2021"
     }
 ]
@@ -58,10 +59,10 @@ for (let i = 0; i < socialPost.length; i++) {
                                 <div class="row">
                                     <div class="col-2">
                                         <img
-                                           class="img-fluid" src="${socialPost[i].avatarImg}"alt="">
+                                           class="img-fluid" src="${socialPost[i].author.avatarImg}"alt="">
                                     </div>
                                     <div class="col">
-                                        <h5 class="card-title">${socialPost[i].nome}</h5>
+                                        <h5 class="card-title">${socialPost[i].author.nome}</h5>
                                         <p class="card-text"><small
                                                 class="text-muted">Last updated ${socialPost[i].date}</small>
                                         </p>
@@ -73,7 +74,7 @@ for (let i = 0; i < socialPost.length; i++) {
                                 <div class="container">
                                     <div class="row">
                                         <div class="col">
-                                            bottone like
+                                            <input id="Like" class="btn btn-primary" type="button" value="Like">
                                         </div>
                                         <div class="col">
                                             <p>Piace a ${socialPost[i].like} persone</p>
@@ -86,3 +87,8 @@ for (let i = 0; i < socialPost.length; i++) {
     document.getElementById("postContainer").innerHTML += post
 
 }
+
+document.getElementById("Like").addEventListener("click", function () {
+    console.log("like")
+
+})
