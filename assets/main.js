@@ -81,7 +81,7 @@ for (let i = 0; i < socialPost.length; i++) {
                                             <button class="btn mt-2 like_button" data-idCurrent="${socialPost[i].id}"><i class="fas fa-thumbs-up fa-lg"></i> Mi Piace</button>
                                         </div>
                                         <div class="col mt-3">
-                                            <p>Piace a ${socialPost[i].like} persone</p>
+                                            <p>Piace a <span class="like_counter-${socialPost[i].id}">${socialPost[i].like}</span> persone</p>
                                         </div>
                                     </div>
                                 </div>
@@ -99,13 +99,17 @@ for (let i = 0; i < socialPost.length; i++) {
 const likeButtons = document.getElementsByClassName("like_button")
 //ciclo con lunghezza il numero dei bottoni
 for (let i = 0; i < likeButtons.length; i++) {
+    //ottieni una costante singolo bottone
     const likeButton = likeButtons[i];
+    //al click del bottone
     likeButton.addEventListener("click", function () {
         //console.log(socialPost[i].id)
-
-
         myLike.push(socialPost[i].id)
         console.log(myLike)
+        let idBtnPost = this.getAttribute("data-idCurrent")
+        let likeCounter = document.querySelector(".like_counter-" + idBtnPost)
+        likeCounter.innerHTML = parseInt(likeCounter.innerHTML) + 1;
+
 
     })
 }
