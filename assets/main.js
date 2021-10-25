@@ -78,7 +78,7 @@ for (let i = 0; i < socialPost.length; i++) {
                                 <div class="container">
                                     <div class="row">
                                         <div class="col">
-                                            <button class="btn mt-2 like_button" data-idCurrent="${socialPost[i].id}"><i class="fas fa-thumbs-up fa-lg"></i> Mi Piace</button>
+                                            <button class="btn mt-2 like_button not_like" data-idCurrent="${socialPost[i].id}"><i class="fas fa-thumbs-up fa-lg"></i> Mi Piace</button>
                                         </div>
                                         <div class="col mt-3">
                                             <p>Piace a <span class="like_counter-${socialPost[i].id}">${socialPost[i].like}</span> persone</p>
@@ -104,12 +104,14 @@ for (let i = 0; i < likeButtons.length; i++) {
     //al click del bottone
     likeButton.addEventListener("click", function () {
         //console.log(socialPost[i].id)
-        myLike.push(socialPost[i].id)
-        console.log(myLike)
-        let idBtnPost = this.getAttribute("data-idCurrent")
-        let likeCounter = document.querySelector(".like_counter-" + idBtnPost)
-        likeCounter.innerHTML = parseInt(likeCounter.innerHTML) + 1;
-
+        if (likeButton.classList.contains("not_like")) {
+            likeButton.classList.remove("not_like")
+            myLike.push(socialPost[i].id)
+            console.log(myLike)
+            let idBtnPost = this.getAttribute("data-idCurrent")
+            let likeCounter = document.querySelector(".like_counter-" + idBtnPost)
+            likeCounter.innerHTML = parseInt(likeCounter.innerHTML) + 1;
+        }
 
     })
 }
