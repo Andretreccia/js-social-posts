@@ -106,6 +106,7 @@ for (let i = 0; i < likeButtons.length; i++) {
         //console.log(socialPost[i].id)
         if (likeButton.classList.contains("not_like")) {
             likeButton.classList.remove("not_like")
+            likeButton.classList.add("blue")
             myLike.push(socialPost[i].id)
             console.log(myLike)
             let idBtnPost = this.getAttribute("data-idCurrent")
