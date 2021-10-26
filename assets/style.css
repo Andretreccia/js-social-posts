@@ -9,6 +9,9 @@ h1{
     text-align: center;
     color: white;
 }
+.avatar{
+    border-radius: 100%;
+}
 .blue{
     color: steelblue;
 }

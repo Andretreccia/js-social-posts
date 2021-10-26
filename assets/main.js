@@ -63,7 +63,7 @@ for (let i = 0; i < socialPost.length; i++) {
                                 <div class="row">
                                     <div class="col-2">
                                         <img
-                                           class="img-fluid" src="${socialPost[i].author.avatarImg}"alt="">
+                                           class=" avatar img-fluid" src="${socialPost[i].author.avatarImg}"alt="">
                                     </div>
                                     <div class="col">
                                         <h5 class="card-title">${socialPost[i].author.nome}</h5>
